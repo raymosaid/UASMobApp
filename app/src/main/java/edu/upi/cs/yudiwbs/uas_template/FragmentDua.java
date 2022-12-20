@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import edu.upi.cs.yudiwbs.uas_template.databinding.FragmentDuaBinding;
 import edu.upi.cs.yudiwbs.uas_template.databinding.FragmentSatuBinding;
@@ -59,7 +61,10 @@ public class FragmentDua extends Fragment {
         binding.buttonFrag2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                alHasil.add(new Hasil("satu..."));
+                SimpleDateFormat time = new SimpleDateFormat("hh:mm:ss");
+                String timestamp = time.format(new Date());
+
+                alHasil.add(new Hasil(timestamp));
                 adapter.notifyDataSetChanged();
             }
         });
